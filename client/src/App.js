@@ -1,5 +1,6 @@
 import './App.css';
 import {useState} from 'react'
+import axios from 'axios'
 
 function App() {
 
@@ -8,6 +9,20 @@ function App() {
   const [country, setCountry] = useState('');
   const [position, setPosition] = useState('');
   const [wage, setWage] = useState(0);
+
+  const addEmployee = () => {
+    axios.post('http://localhost:8080/employee/', {
+      name: name,
+      age: age,
+      country: country,
+      position: position,
+      wage: wage
+    }).then((response) => {
+      console.log(response);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
 
   return (
     <div className="App">
@@ -53,7 +68,7 @@ function App() {
         }}
         />
 
-        <button>Add Employee</button>
+        <button onClick={addEmployee}>Add Employee</button>
       </div>
     </div>
   );
