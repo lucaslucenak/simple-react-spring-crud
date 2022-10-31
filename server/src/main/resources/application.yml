@@ -1,0 +1,17 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: create
+        show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5432/simple_react_spring_crud
+    username: postgres
+    password: 123456
+    initialization-mode: always
+    initialize: true
+    schema: classpath:/schema.sql
+    continue-on-error: true
