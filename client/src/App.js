@@ -1,76 +1,30 @@
 import './App.css';
-import {useState} from 'react'
-import axios from 'axios'
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
+import PostEmployee from './components/postEmployee/PostEmployee';
+import GetAllEmployees from './components/getAllEmployees/GetAllEmployees';
+import Home from './components/home/Home';
+
 
 function App() {
-
-  const [name, setName] = useState('');
-  const [age, setAge] = useState(0);
-  const [country, setCountry] = useState('');
-  const [position, setPosition] = useState('');
-  const [wage, setWage] = useState(0);
-
-  const addEmployee = () => {
-    axios.post('http://localhost:8080/employee/', {
-      name: name,
-      age: age,
-      country: country,
-      position: position,
-      wage: wage
-    }).then((response) => {
-      console.log(response);
-    }).catch((error) => {
-      console.log(error);
-    });
-  }
-
   return (
-    <div className="App">
-      <div className='information'>
+    <Router>
+      <nav>
+        <Link to="/"> Home </Link>
+        <Link to="/post-employee"> Post employee </Link>
+        <Link to="get-all-employees"> Get all employees </Link>
+      </nav>
+      <Routes>
+        <Route exact path="/" element={<Home />}/>
+        <Route path="/post-employee" element={<PostEmployee />}/>
+        <Route path="/get-all-employees" element={<GetAllEmployees />}/>
+      </Routes>
+    </Router>
 
-        <label>Name: </label>
-        <input
-          type="text"
-          onChange= {(event) => {
-            setName(event.target.value);
-          }} 
-        />
 
-        <label>Age: </label>
-        <input 
-        type="number"
-        onChange= {(event) => {
-          setAge(event.target.value);
-        }}
-        />
-
-        <label>Country: </label>
-        <input 
-        type="text"
-        onChange= {(event) => {
-          setCountry(event.target.value);
-        }}
-        />
-
-        <label>Position: </label>
-        <input
-        type="text"
-        onChange= {(event) => {
-          setPosition(event.target.value);
-        }}
-        />
-
-        <label>Wage (year): </label>
-        <input
-        type="number"
-        onChange= {(event) => {
-          setWage(event.target.value);
-        }}
-        />
-
-        <button onClick={addEmployee}>Add Employee</button>
-      </div>
-    </div>
+    // <div className="App">
+    //   <PostEmployee />
+      
+    // </div>
   );
 }
 
