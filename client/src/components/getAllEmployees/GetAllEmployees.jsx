@@ -33,6 +33,7 @@ const GetAllEmployees = () => {
                 <td>Wage (year)</td>
               </tr>
               <tr key={employee.id}>
+                <td>{employee.id}</td>
                 <td>{employee.name}</td>
                 <td>{employee.age}</td>
                 <td>{employee.country}</td>
