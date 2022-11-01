@@ -9,17 +9,17 @@ import {Button} from 'reactstrap'
 function App() {
   return (
     <Router>
-      <nav>
-        
-        <Link to="/"> Home </Link>
+
+        <Button color="primary"> <Link to="/"> Home </Link> </Button>
         <Button color="primary"> <Link to="/post-employee"> Post employee </Link> </Button>
-        <Link to="get-all-employees"> Get all employees </Link>
-      </nav>
+        <Button color="primary"> <Link to="get-all-employees"> Get all employees </Link> </Button>
+
       <Routes>
         <Route exact path="/" element={<Home />}/>
         <Route path="/post-employee" element={<PostEmployee />}/>
         <Route path="/get-all-employees" element={<GetAllEmployees />}/>
       </Routes>
+      
     </Router>
 
 
