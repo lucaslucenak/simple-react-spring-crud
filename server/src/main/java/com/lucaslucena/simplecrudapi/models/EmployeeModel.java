@@ -14,7 +14,10 @@ public class EmployeeModel {
     private Long id;
 
     @Column
-    private String name;
+    private String first_name;
+
+    @Column
+    private String last_name;
 
     @Column
     private Integer age;

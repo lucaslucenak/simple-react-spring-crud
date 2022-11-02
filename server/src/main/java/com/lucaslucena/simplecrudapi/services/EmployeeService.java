@@ -35,7 +35,8 @@ public class EmployeeService {
         EmployeeModel databaseEmployee = employeeRepository.findById(id).orElseThrow(ChangeSetPersister.NotFoundException::new);
         databaseEmployee.setAge(employeeModel.getAge());
         databaseEmployee.setCountry(employeeModel.getCountry());
-        databaseEmployee.setName(employeeModel.getName());
+        databaseEmployee.setFirst_name(employeeModel.getFirst_name());
+        databaseEmployee.setLast_name(employeeModel.getLast_name());
         databaseEmployee.setPosition(employeeModel.getPosition());
         databaseEmployee.setWage(employeeModel.getWage());
         return databaseEmployee;
