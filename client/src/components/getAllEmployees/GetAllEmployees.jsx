@@ -2,11 +2,16 @@ import React from 'react'
 import './getAllEmployees.css'
 import {useState, useEffect} from 'react'
 import axios from 'axios'
+import {Button} from 'reactstrap'
 
-async function getAllEmployees() {
-    const employees = await axios.get('http://localhost:8080/employee/');
-    console.log(employees.data);
-    return employees.data;
+function deleteEmployeeById(id) {
+  fetch(`http://localhost:8080/employee/${id}`, {
+    method: 'DELETE'
+  }).then((response) => {
+    response.json().then((response) => {
+      console.warn(response);
+    })
+  })
 }
 
 const GetAllEmployees = () => {
@@ -17,11 +22,8 @@ const GetAllEmployees = () => {
     fetch('http://localhost:8080/employee/').then(response => response.json()).then(data => setEmployees(data))
   }, [])
 
-
   return (
     <section id="getAllEmployees">
-      {
-        employees.map(employee => {
           return (
             <table border="1" cellspacing="0" cellpadding="1">
               <tr>
@@ -33,27 +35,22 @@ const GetAllEmployees = () => {
                 <td>Position</td>
                 <td>Wage (year)</td>
               </tr>
-              <tr key={employee.id}>
-                <td>{employee.id}</td>
-                <td>{employee.first_name}</td>
-                <td>{employee.last_name}</td>
-                <td>{employee.age}</td>
-                <td>{employee.country}</td>
-                <td>{employee.position}</td>
-                <td>{employee.wage}</td>
-              </tr>
+              {
+                employees.map((employee) => 
+                  <tr key={employee.id}>
+                    <td>{employee.id}</td>
+                    <td>{employee.first_name}</td>
+                    <td>{employee.last_name}</td>
+                    <td>{employee.age}</td>
+                    <td>{employee.country}</td>
+                    <td>{employee.position}</td>
+                    <td>{employee.wage}</td>
+                    <td><Button color='danger' onClick={deleteEmployeeById(employee.id)}>Delete </Button></td>
+                  </tr>
+                )
+              }
             </table>
-            // <div key={employee.id}>
-            //   <table border="1">
-            //     <tr>
-            //       td
-            //     </tr>
-            //   </table>
-            //   <span>Id: {employee.id}</span>
-            // </div>
           )
-        })
-      }
     </section>
   )
 }
