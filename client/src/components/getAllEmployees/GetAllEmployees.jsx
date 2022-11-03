@@ -26,7 +26,8 @@ const GetAllEmployees = () => {
             <table border="1" cellspacing="0" cellpadding="1">
               <tr>
                 <td>Id</td>
-                <td>Name</td>
+                <td>First Name</td>
+                <td>Last Name</td>
                 <td>Age</td>
                 <td>Country</td>
                 <td>Position</td>
@@ -34,7 +35,8 @@ const GetAllEmployees = () => {
               </tr>
               <tr key={employee.id}>
                 <td>{employee.id}</td>
-                <td>{employee.name}</td>
+                <td>{employee.first_name}</td>
+                <td>{employee.last_name}</td>
                 <td>{employee.age}</td>
                 <td>{employee.country}</td>
                 <td>{employee.position}</td>
