@@ -8,38 +8,28 @@ import Home from '../../components/home/Home';
 const Header = () => {
   return (
     <Router>
-        <Nav
-        justified
-        pills
-        >
-            <NavItem>
-                <NavLink
-                active
-                href="#"
-                >
-                <Link to="/"> Home </Link>
-                </NavLink>
-            </NavItem>
-            <NavItem>
-                <NavLink href="#">
-                <Link to="/post-employee"> Post employee </Link>
-                </NavLink>
-            </NavItem>
-            <NavItem>
-                <NavLink href="#">
-                <Link to="get-all-employees"> Get all employees </Link>
-                </NavLink>
-            </NavItem>
-            <NavItem>
-                <NavLink disabled href="#">
-                Disabled Link
-                </NavLink>
-            </NavItem>
-        </Nav>
-
-    {/* <Button color="danger"> <Link to="/"> Home </Link> </Button>
-    <Button color="danger"> <Link to="/post-employee"> Post employee </Link> </Button>
-    <Button color="danger"> <Link to="get-all-employees"> Get all employees </Link> </Button> */}
+      <Nav justified pills>
+        <NavItem>
+            <NavLink href="#">
+            <Link to="/"> Home </Link>
+            </NavLink>
+        </NavItem>
+        <NavItem>
+            <NavLink href="#">
+            <Link to="/post-employee"> Post employee </Link>
+            </NavLink>
+        </NavItem>
+        <NavItem>
+            <NavLink href="#">
+            <Link to="get-all-employees"> Get all employees </Link>
+            </NavLink>
+        </NavItem>
+        <NavItem>
+            <NavLink disabled href="#">
+            Disabled Link
+            </NavLink>
+        </NavItem>
+      </Nav>
 
   <Routes>
     <Route exact path="/" element={<Home />}/>
