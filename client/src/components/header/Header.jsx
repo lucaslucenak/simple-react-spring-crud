@@ -21,7 +21,7 @@ const Header = () => {
         </NavItem>
         <NavItem>
             <NavLink href="#">
-            <Link to="get-all-employees"> Get all employees </Link>
+            <Link to="get-all-employees"> See employees </Link>
             </NavLink>
         </NavItem>
         <NavItem>
