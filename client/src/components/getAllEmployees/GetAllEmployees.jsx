@@ -4,14 +4,21 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 import {Button} from 'reactstrap'
 
-function deleteEmployeeById(id) {
-  fetch(`http://localhost:8080/employee/${id}`, {
-    method: 'DELETE'
-  }).then((response) => {
-    response.json().then((response) => {
-      console.warn(response);
-    })
-  })
+// function deleteEmployeeById(id) {
+//   fetch(`http://localhost:8080/employee/${id}`, {
+//     method: 'DELETE'
+//   }).then((response) => {
+//     response.json().then((response) => {
+//       console.warn(response);
+//     })
+//   })
+// }
+
+function deleteEmployeeById(id, e) {
+  e.preventDefault();
+  axios.delete(`http://localhost:8080/employee/${id}`).then(res => {
+    console.log('Delete employee with id ' + id)
+  }).catch(err => console.log(err));
 }
 
 const GetAllEmployees = () => {
@@ -45,7 +52,7 @@ const GetAllEmployees = () => {
                     <td>{employee.country}</td>
                     <td>{employee.position}</td>
                     <td>{employee.wage}</td>
-                    <td><Button color='danger' onClick={deleteEmployeeById(employee.id)}>Delete </Button></td>
+                    <td><Button color='danger' onClick={(e) => deleteEmployeeById(employee.id, e)}>Delete</Button></td>
                   </tr>
                 )
               }
