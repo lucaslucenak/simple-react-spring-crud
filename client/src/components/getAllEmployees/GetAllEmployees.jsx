@@ -31,7 +31,6 @@ const GetAllEmployees = () => {
 
   return (
     <section id="getAllEmployees">
-          return (
             <table border="1" cellspacing="0" cellpadding="1">
               <tr>
                 <td>Id</td>
@@ -57,7 +56,6 @@ const GetAllEmployees = () => {
                 )
               }
             </table>
-          )
     </section>
   )
 }
