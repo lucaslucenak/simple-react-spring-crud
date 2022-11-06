@@ -52,6 +52,7 @@ const GetAllEmployees = () => {
                     <td>{employee.position}</td>
                     <td>{employee.wage}</td>
                     <td><Button color='danger' onClick={(e) => deleteEmployeeById(employee.id, e)}>Delete</Button></td>
+                    <td><Button color='secondary'>Update</Button></td>
                   </tr>
                 )
               }
